@@ -705,11 +705,12 @@
                 Let Us Get Connected To Talk About Tech And Recent Happenings
                 Around The World
               </p>
-              <form class="connect-form" action="">
+              <form class="connect-form" name="connect" netlify>
                 <div>
                   <label for="name">Full Name</label>
                   <input
                     id="u-name"
+                    name="full-name"
                     type="text"
                     placeholder="Enter Your Name"
                     required
@@ -719,6 +720,7 @@
                   <label for="email">Email Address </label>
                   <input
                     id="email"
+                    name="u-email"
                     type="email"
                     placeholder="Enter Your Mail Id"
                     required
@@ -726,7 +728,7 @@
                 </div>
                 <div>
                   <label for="select-option">Intrested In ?</label>
-                  <select id="select-option" required>
+                  <select name="select-option" required>
                     <option value="option">Please Choose One Option:</option>
                     <option value="technology">Tech 💻</option>
                     <option value="coding">Coding 🧑🏻‍💻</option>
