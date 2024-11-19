@@ -38,19 +38,22 @@ body {
   /* background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
 }
 
+
 .hero--section {
   background-color: #dde4ff;
-  padding: 9.6rem 0 4.8rem 0;
+  padding: 8rem 0 4rem 0;
 }
 
 .hero {
-  max-width: 130rem;
+  max-width: 120rem;
   display: grid;
   margin: 0 auto;
-  padding: 0 3.2rem;
+  padding: 0 2rem;
   grid-template-columns: 1fr 1fr;
-  gap: 9rem;
+  gap: 8rem;
   align-items: center;
+  justify-items: left;
+  
 }
 
 .intro {
@@ -66,7 +69,7 @@ body {
 
 #name
 {
-  margin-left:0.2rem;
+  margin-left:0.1rem;
   text-shadow: 2px -2px #5c8c91, 4px -4px #1098ad, 6px -6px #a1c4fd;
 }
 .auth--img {
@@ -108,6 +111,11 @@ body {
   transition: all 1.5s;
 }
 
+.lin_logo
+{
+
+}
+
 .about--btn:hover,
 .about--btn:active {
   background-color: #3552c5;
@@ -129,7 +137,7 @@ body {
   color: rebeccapurple;
   list-style: none;
   font-family: "Fira Code", monospace;
-  font-size: 6rem;
+  font-size: 5.4rem;
   font-weight: 500;
   position: relative;
   top: 0;
@@ -182,7 +190,7 @@ header {
 }
 .nv-logo {
   margin-top: 4rem;
-  height: 10rem;
+  height: 8rem;
   border-radius: 300%;
   box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
 }
@@ -191,7 +199,7 @@ header {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 3rem;
 }
 
 .nav-link:link,
