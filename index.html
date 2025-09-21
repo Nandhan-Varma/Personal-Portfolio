@@ -1,881 +1,1041 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nandhan Varma Portfolio</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/queries.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>Nandhan Varma | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+                950: "#172554",
+              },
+              dark: {
+                bg: "#212529",
+                card: "#343a40",
+                border: "#495057",
+                text: "#ced4da",
+                heading: "#f8f9fa",
+              },
+              light: {
+                bg: "#f8fafc", // A very light, neutral gray
+                card: "#ffffff", // Pure white
+                border: "#e2e8f0", // A soft border color
+                text: "#475569", // Dark gray for readable text
+                heading: "#0f172a", // A very dark blue/gray for headings
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+      /* Base styles for elements to be animated */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+          transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      /* Class added by JS when element is in view */
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .grid-pattern {
+        background-image: linear-gradient(
+            to right,
+            rgba(128, 128, 128, 0.15) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(128, 128, 128, 0.15) 1px,
+            transparent 1px
+          );
+        background-size: 30px 30px;
+      }
+      .dark .grid-pattern {
+        background-image: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          );
+      }
+      .project-card:hover .project-image {
+        transform: scale(1.05);
+      }
+    </style>
   </head>
-  <body>
-    <header class="header">
-      <img src="../images/my-logo (2).png" alt="logo" class="nv-logo" />
-      <nav class="header-nav">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="#education">Academics</a></li>
-          <li><a class="nav-link" href="#skills">Skills</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="hero--section">
-      <div class="hero">
-        <div class="hero--text">
-          <h2 class="intro">Hi! Myself <span id="name">Nandhan</span></h2>
-          <div class="effects">
+  <body
+    class="bg-light-bg dark:bg-dark-bg font-sans transition-colors duration-300"
+  >
+    <!-- Header -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-lg z-50 border-b border-light-border dark:border-dark-border"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a
+            href="#"
+            class="text-2xl font-bold font-display text-primary-600 dark:text-primary-500"
+            >NV</a
+          >
+          <nav class="hidden md:flex items-center space-x-6">
+            <a
+              href="#about"
+              class="text-sm font-medium text-light-text dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-500 transition-colors"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-sm font-medium text-light-text dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-500 transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="text-sm font-medium text-light-text dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-500 transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-sm font-medium text-light-text dark:text-dark-text hover:text-primary-600 dark:hover:text-primary-500 transition-colors"
+              >Contact</a
+            >
+          </nav>
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full text-light-text dark:text-dark-text hover:bg-light-border dark:hover:bg-dark-border focus:outline-none"
+          >
             <svg
-              class="svg--icon"
-              xmlns="http://www.w3.org/2000/svg"
+              id="theme-toggle-dark-icon"
+              class="h-5 w-5 hidden"
+              fill="none"
               viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
             >
               <path
-                fill="#3552c5"
-                stroke="#333"
-                d="M20.67,9.69,14,5.84a2.67,2.67,0,0,0-4,2.31h0L6,5.84A2.67,2.67,0,0,0,2,8.15v7.7a2.63,2.63,0,0,0,1.33,2.3,2.61,2.61,0,0,0,1.34.37A2.69,2.69,0,0,0,6,18.16l4-2.31h0a2.65,2.65,0,0,0,1.33,2.31,2.66,2.66,0,0,0,2.67,0l6.67-3.85a2.67,2.67,0,0,0,0-4.62ZM10,13.54,5,16.42a.67.67,0,0,1-1-.57V8.15a.67.67,0,0,1,1-.57l5,2.88Zm9.67-1L13,16.43a.69.69,0,0,1-.67,0,.66.66,0,0,1-.33-.58V8.15a.66.66,0,0,1,.33-.58.78.78,0,0,1,.34-.09.63.63,0,0,1,.33.09l6.67,3.85a.67.67,0,0,1,0,1.16Z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
               />
             </svg>
-            <div class="wrapper">
-              <ul class="dynamic-txts">
-                <li>Programmer</li>
-                <li>Web Developer</li>
-                <li>ML Enthusiast</li>
-              </ul>
-            </div>
-          </div>
-          <a
-            href="https://bit.ly/nandhanvarma-resume"
-            class="btn resume--btn"
-            target="_blank"
-            >Resume</a
-          >
-          <a href="#section--aboutme" class="btn about--btn">About Me &darr;</a>
-        </div>
-        <div class="hero--img">
-          <img
-            src="../images/Code typing-amico.png"
-            alt="Illustration Image Obtained From Storyset Which Depicts Coding"
-            class="auth--img"
-          />
+            <svg
+              id="theme-toggle-light-icon"
+              class="h-5 w-5 hidden"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.95-4.22l-1.591 1.591M5.25 12H3m4.22-4.95L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
-    <div class="main-container">
-      <section class="aboutme--section">
-        <h2 class="about--heading">About Me</h2>
-        <div class="div--aboutme" id="section--aboutme">
-          <div class="about--text">
-            <div>
-              <p>My Name Is Nandhan Varma.</p>
-              <p>
-                -> I had completed my Computer Science and Engineering In
-                Institute Of Aeronautical Engineering(IARE)-HYD.
-              </p>
-              <p>
-                -> Currently Working as a System Engineer (Digital) @ TCS Hyderabad.
-              </p>
-            </div>
-            <div>
-              <p>-> My Primary Skills Are Python,Java,SQL</p>
-            </div>
-            <div>
-              <p>-> I Always Strive To Learn New Things.</p>
-              <p>
-                -> My Major Intrests Are In The Backend Development and Deep
-                Learning Fields.
-              </p>
-              <p>
-                -> I Had Done Various Projects Based On Deep Learning and Web
-                Development
-              </p>
-              <p>
-                -> Learnt From Various Instructors And Passed Various Tests To
-                Obtain Certification.
-              </p>
-              <p>My Motto Is <strong>"Learn Develop Excel"</strong></p>
-            </div>
-          </div>
-        </div>
-      </section>
+    </header>
 
-      <section id="education" class="academics">
-        <div class="main-academics">
-          <h2 class="secondary--heading">Academics</h2>
-          <p class="about--academics">
-            Throughout My Academics I Had Scored 80% And Above Which Shows I Am
-            Enthusiastic Towards My Studies
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative min-h-[calc(100vh-6rem)] flex items-center justify-center text-center overflow-hidden"
+      >
+        <div class="absolute inset-0 grid-pattern -z-10"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-light-bg dark:to-dark-bg -z-10"
+        ></div>
+        <div class="reveal">
+          <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-extrabold font-display text-light-heading dark:text-dark-heading leading-tight mb-4"
+          >
+            Nandhan Varma
+          </h1>
+          <p
+            class="text-lg md:text-xl text-primary-600 dark:text-primary-400 font-semibold mb-8"
+          >
+            <span id="typing-effect"></span>
           </p>
-          <!-- <div class="container grid--2--cols"> -->
-          <div class="grid--2--cols academics-layout">
-            <div class="acad--stages">
-              <h3 class="tertiary--heading">School</h3>
-              <ul class="acad--details">
-                <li>
-                  <div class="side-heading">
-                    <p>School:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Vidya Mandir E.M. High School</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Place:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Kadapa</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Board:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>CBSE</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>CGPA:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>9.0</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="edu--imgs">
-              <img
-                src="../images/school.png"
-                alt="Illustration of school image taken from Storyset"
-                class="academic--img"
-              />
-            </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://bit.ly/4noIGDl"
+              target="_blank"
+              class="inline-block bg-primary-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-primary-700 transition-transform transform hover:scale-105 shadow-lg shadow-primary-500/20"
+            >
+              View Resume
+            </a>
+            <a
+              href="#contact"
+              class="inline-block bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border text-light-heading dark:text-dark-heading font-medium py-3 px-8 rounded-lg hover:bg-light-border dark:hover:bg-dark-border transition-colors"
+            >
+              Get in Touch
+            </a>
           </div>
-          <div class="container grid--2--cols academics-layout">
-            <div class="edu--imgs">
-              <img
-                src="../images/college.png"
-                alt="Illustation of High School taken from Storyset"
-                class="academic--img"
-              />
-            </div>
-            <div class="acad--stages">
-              <h3 class="tertiary--heading">High School</h3>
-              <ul class="acad--details">
-                <li>
-                  <div class="side-heading">
-                    <p>College:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Sri Chaitanya JR College</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Place:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Hyderabad</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Board:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>TSBIE</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Marks:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>920/1000</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="container grid--2--cols academics-layout">
-            <div class="acad--stages">
-              <h3 class="tertiary--heading">Undergraduate</h3>
-              <ul class="acad--details">
-                <li>
-                  <div class="side-heading">
-                    <p>College:</p>
-                  </div>
-                  <div class="about-heading2">
-                    <p>Institute Of Aeronautical Engineering</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Branch:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Computer Science Engineering</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>Place:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>Dundigal, Hyderabad</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="side-heading">
-                    <p>CGPA:</p>
-                  </div>
-                  <div class="about-heading">
-                    <p>8.18</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="edu--imgs">
-              <img
-                src="../images/graduation.png"
-                alt="Illustration of Undergraduate Taken From Storyset"
-                class="academic--img"
-              />
-            </div>
+          <div class="mt-12 flex justify-center space-x-6">
+            <a
+              href="https://github.com/Nandhan-Varma"
+              target="_blank"
+              class="text-light-text dark:text-dark-text hover:text-[#181717] dark:hover:text-white transition-colors transform hover:scale-110"
+            >
+              <svg
+                class="h-7 w-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/nandhan-varma-somalaraju/"
+              class="text-light-text dark:text-dark-text hover:text-[#0A66C2] dark:hover:text-[#0A66C2] transition-colors transform hover:scale-110"
+            >
+              <svg
+                class="h-7 w-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
-      <section class="coding-profiles">
-        <div class="about--coding">
-          <h2>Stats in Various Coding Websites</h2>
-        </div>
-        <div class="grid--2--cols3">
-          <div class="profiles">
-            <div class="img--container">
-              <img
-                src="../images/codechef.png"
-                alt="codechef logo"
-                class="logos"
-              />
-            </div>
-            <div class="about-profile">
-              <ul class="plat--content">
-                <li>
-                  <div><i class="uil uil-globe"></i></div>
-                  <div class="side-heading"><p>Website:</p></div>
-                  <div class="about-heading"><p>Codechef</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-user"></i></div>
-                  <div class="side-heading"><p>Username:</p></div>
-                  <div class="about-heading"><p>nandhan_8374</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-arrow-growth"></i></div>
-                  <div class="side-heading"><p>Max Rating:</p></div>
-                  <div class="about-heading"><p>1638</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-check"></i></div>
-                  <div class="side-heading"><p>Solved:</p></div>
-                  <div class="about-heading"><p>297 Problems</p></div>
-                </li>
-                <li>
-                  <a
-                    href="https://www.codechef.com/users/nandhan_8374"
-                    target="_blank"
-                    ><i class="uil uil-link-h"></i> Account</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="profiles">
-            <div class="img--container">
-              <img
-                src="../images/codeforces.png"
-                alt="codeforces logo"
-                class="logos"
-              />
-            </div>
-            <div class="about-profile">
-              <ul class="plat--content">
-                <li>
-                  <div><i class="uil uil-globe"></i></div>
-                  <div class="side-heading"><p>Webiste:</p></div>
-                  <div class="about-heading"><p>Codeforces</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-user"></i></div>
-                  <div class="side-heading"><p>Username:</p></div>
-                  <div class="about-heading"><p>Nandhan_8374</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-arrow-growth"></i></div>
-                  <div class="side-heading">
-                    <p>Max Rating:</p>
-                  </div>
-                  <div class="about-heading"><p>851</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-check"></i></div>
-                  <div class="side-heading">
-                    <p>Solved:</p>
-                  </div>
-                  <div class="about-heading"><p>106 Problems</p></div>
-                </li>
-                <li>
-                  <a
-                    href="https://codeforces.com/profile/Nandhan_8374"
-                    target="_blank"
-                    ><i class="uil uil-link-h"></i> Account</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="profiles">
-            <div class="img--container">
-              <img
-                src="../images/leetcode.png"
-                alt="leetcode logo "
-                class="logos"
-              />
-            </div>
-            <div class="about-profile">
-              <ul class="plat--content">
-                <li>
-                  <div><i class="uil uil-globe"></i></div>
-                  <div class="side-heading"><p>Website:</p></div>
-                  <div class="about-heading"><p>Leetcode</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-user"></i></div>
-                  <div class="side-heading">
-                    <p>Username:</p>
-                  </div>
-                  <div class="about-heading"><p>nandhan11</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-arrow-growth"></i></div>
-                  <div class="side-heading">
-                    <p>Max Rating:</p>
-                  </div>
-                  <div class="about-heading"><p>1465</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-check"></i></div>
-                  <div class="side-heading">
-                    <p>Solved:</p>
-                  </div>
-                  <div class="about-heading"><p>415 Problems</p></div>
-                </li>
-                <li>
-                  <a href="https://leetcode.com/nandhan11/" target="_blank"
-                    ><i class="uil uil-link-h"></i>Account</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="profiles">
-            <div class="img--container">
-              <img
-                src="../images/hackerrank.png"
-                alt="hackerrank logo"
-                class="logos"
-              />
-            </div>
-            <div class="about-profile">
-              <ul class="plat--content">
-                <li>
-                  <div><i class="uil uil-globe"></i></div>
-                  <div class="side-heading">
-                    <p>Website:</p>
-                  </div>
 
-                  <div class="about-heading"><p>Hackerrank</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-user"></i></div>
-                  <div class="side-heading">
-                    <p>Username:</p>
-                  </div>
-                  <div class="about-heading"><p>nandhanvarma</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-arrow-growth"></i></div>
-                  <div class="side-heading">
-                    <p>Rank:</p>
-                  </div>
-                  <div class="about-heading"><p>78146</p></div>
-                </li>
-                <li>
-                  <div><i class="uil uil-check"></i></div>
-                  <div class="side-heading">
-                    <p>Score:</p>
-                  </div>
-                  <div class="about-heading"><p>1519</p></div>
-                </li>
-                <li>
-                  <a
-                    href="https://www.hackerrank.com/nandhanvarma"
-                    target="_blank"
-                    ><i class="uil uil-link-h"></i>Account</a
-                  >
-                </li>
-              </ul>
+      <!-- About Me Section -->
+      <section id="about" class="py-24 lg:py-32">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-12 items-center">
+          <div class="md:col-span-1 reveal">
+            <img
+              src="images/my-image-png.png"
+              alt="Nandhan Varma"
+              class="rounded-full mx-auto w-48 h-48 object-cover border-4 border-light-border dark:border-dark-border shadow-lg"
+            />
+          </div>
+          <div
+            class="md:col-span-2 text-center md:text-left reveal"
+            style="transition-delay: 150ms"
+          >
+            <h2
+              class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading mb-4"
+            >
+              About Me
+            </h2>
+            <div class="text-lg text-light-text dark:text-dark-text space-y-4">
+              <p>
+                My name is Nandhan Varma. I'm a Computer Science and Engineering
+                graduate from the Institute Of Aeronautical Engineering (IARE),
+                Hyderabad, and I'm currently working as a System Engineer at
+                TCS.
+              </p>
+              <p>
+                A passionate and experienced Backend Developer with 2 years of hands-on experience in Generative AI and Data Engineering. I have a proven track record of designing, building, and deploying scalable solutions on the AWS platform using AWS Bedrock, Lambda, Glue, and CloudFormation. My work involves creating robust backend systems and developing end-to-end data pipelines. I am a lifelong learner committed to continuously improving my skills and applying them to solve complex technical challenges.
+              </p>
+              <p class="font-semibold text-primary-600 dark:text-primary-400">
+                My motto is: "Learn, Develop, Excel".
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <h3 class="project-title">Number Guess Game</h3>
-        <div class="grid--2--cols">
-          <div class="animated-images">
-            <lottie-player
-              src="https://assets6.lottiefiles.com/packages/lf20_xwipaalv.json"
-              background="transparent"
-              class="lottie-player1"
-              speed="1"
-              style="width: 40rem; height: 40rem"
-              loop
-              autoplay
-            ></lottie-player>
-          </div>
-          <div>
-            <ul class="project-desc">
-              <li>
-                A Simple Game Using JS where the user had to guess the number
-                between 1 and 30
-              </li>
-              <li>
-                It has Restart Of Game Also Has The Implementation Of High Score
-              </li>
-              <li>Maximum Chances are 20</li>
-              <li>For Every Wrong Attempt the Score Decrease By 1</li>
-              <li>
-                If the user guess is greater than the secret number it shows
-                "The Guess is High"
-              </li>
-              <li>
-                If the user guess is lower than the secret number it shows "The
-                Guess is Low"
-              </li>
-              <li>
-                If the user guess is correct then the background color changes
-                and high score gets updated if it is a high score than previous
-                high score
-              </li>
-            </ul>
-            <a
-              href="https://github.com/Nandhan-Varma/Guess-Number"
-              target="_blank"
-              class="project-link"
-              >Project Code</a
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="py-24 lg:py-32 bg-light-card dark:bg-dark-card border-y border-light-border dark:border-dark-border"
+      >
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading"
+          >
+            Technical Skills
+          </h2>
+          <p class="text-lg text-light-text dark:text-dark-text mt-2">
+            The technologies I work with
+          </p>
+        </div>
+        <div
+          class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-4"
+        >
+          <div class="reveal">
+            <h3
+              class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-6 text-center"
             >
-            <a
-              href="https://simple-guess-game.netlify.app/"
-              target="_blank"
-              class="project-link"
-              >Live</a
-            >
-            <h3 class="project-tech-heading">Tech Used</h3>
-            <div class="tech-imgs-container">
-              <div class="project-tech-imgs">
+              Languages
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  class="w-5 h-5"
+                  alt="Python"
                 />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >Python</span
+                >
               </div>
-              <div class="project-tech-imgs">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  class="w-5 h-5"
+                  alt="Java"
                 />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >Java</span
+                >
               </div>
-              <div class="project-tech-imgs">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                  class="w-5 h-5"
+                  alt="C++"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >C++</span
+                >
+              </div>
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  class="w-5 h-5"
+                  alt="JavaScript"
                 />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >JavaScript</span
+                >
               </div>
-            </div>
-          </div>
-        </div>
-        <h3 class="project-title">Face Mask Detection</h3>
-        <div class="grid--2--cols">
-          <div>
-            <ul class="project-desc">
-              <li>
-                A Deep Learning Based Project Which Was Then Integrated With The
-                Web Application
-              </li>
-              <li>
-                Making Use Of Convolutional Neural Networks Where They Obtain
-                Useful Information From The Images For Prediction Purpose.
-              </li>
-              <li>
-                We Trained A Deep Learning Model With Hyperparameters like
-                loss-function,learning rate and added fully connected layers to
-                the existing pre-trained neural network.
-              </li>
-              <li>
-                We Acheived Greater Accuracy In Prediction With MobileNetV2
-                Model.
-              </li>
-              <li>
-                The Obtained Model Weights Are Then Combined With The Face
-                Detection Model Weights.
-              </li>
-              <li>
-                This Is Then Integrated With The Open CV Where Live Detection Of
-                Person Happens And Warns The Person Who Is Not Wearing The Mask.
-              </li>
-              <li>
-                With The Help Of Flask We Then Implemented Sign In And Sign Up
-                Where We Stored User Mail and Phone Number In A Database.
-              </li>
-              <li>
-                With This Web Application We Are Able To Successfully Send An
-                Alert To The User Registered Mail Id Along With The Image During
-                Capture.
-              </li>
-            </ul>
-            <a
-              href="https://github.com/Nandhan-Varma/Face-Mask-Detection"
-              class="project-link"
-              target="_blank"
-              >Project Code</a
-            >
-            <a href="" target="_blank" class="project-link">Live</a>
-            <h3 class="project-tech-heading">Tech Used</h3>
-            <div class="tech-imgs-container">
-              <div class="project-tech-imgs">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg"
-                />
-              </div>
-              <div class="project-tech-imgs">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original-wordmark.svg"
-                />
-              </div>
-              <div class="project-tech-imgs">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original-wordmark.svg"
-                />
-              </div>
-              <div class="project-tech-imgs">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="animated-images">
-            <lottie-player
-              src="https://assets10.lottiefiles.com/private_files/lf30_oGbdoA.json"
-              background="transparent"
-              speed="1"
-              class="lottie-player1"
-              style="width: 30rem; height: 30rem"
-              loop
-              autoplay
-            ></lottie-player>
-          </div>
-        </div>
-        <h3 class="project-title">Prediction Of Respiratory Diseases</h3>
-        <div class="grid--2--cols">
-          <div class="animated-images">
-            <lottie-player
-              src="https://assets1.lottiefiles.com/packages/lf20_b44anj9k.json"
-              background="transparent"
-              speed="1"
-              class="lottie-player1"
-              style="width: 30rem; height: 30rem"
-              loop
-              autoplay
-            ></lottie-player>
-          </div>
-          <div>
-            <ul class="project-desc">
-              <li>
-                A Deep Learning Based Project Where Dataset Consist Of 3 Types
-                Of Respiratory Disease X-Ray And Normal Chest X-Ray.
-              </li>
-              <li>
-                With The Obtained Dataset, We Then Trained and Evaluated The
-                Dataset Images With Various Neural Networks.
-              </li>
-              <li>
-                The Image Which Is Uploaded By User Which Is Not In The Dataset.
-              </li>
-              <li>
-                The Deep Learning Model Tries To Predict Which Type Of
-                Respiratory Disease It Is Or The Person Is Not Affected With Any
-                Respiratory Disease
-              </li>
-            </ul>
-            <div>
-              <a
-                href="https://github.com/Nandhan-Varma/Respiratory-Disease-Detection-From-Chest-X-Ray"
-                class="project-link"
-                target="_blank"
-                >Project Code</a
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
               >
-              <a href="" target="_blank" class="project-link">Live</a>
-            </div>
-            <h3 class="project-tech-heading">Tech Used</h3>
-            <div class="tech-imgs-container">
-              <div class="project-tech-imgs">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  class="w-5 h-5"
+                  alt="HTML5"
                 />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >HTML5</span
+                >
               </div>
-              <div class="project-tech-imgs">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original-wordmark.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  class="w-5 h-5"
+                  alt="CSS3"
                 />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >CSS3</span
+                >
+              </div>
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  class="w-5 h-5"
+                  alt="SQL"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >SQL</span
+                >
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section>
-        <div id="skills" class="main-container">
-          <h3 class="about-technologies">Technologies Known</h3>
-          <div class="tech-icons">
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-line.svg"
-              />
+          <div class="reveal" style="transition-delay: 150ms">
+            <h3
+              class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-6 text-center"
+            >
+              Frameworks & Libraries
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                  class="w-5 h-5"
+                  alt="TensorFlow"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >TensorFlow</span
+                >
+              </div>
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                  class="w-5 h-5"
+                  alt="Flask"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >Flask</span
+                >
+              </div>
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"
+                  class="w-5 h-5"
+                  alt="OpenCV"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >OpenCV</span
+                >
+              </div>
             </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg"
-              />
+          </div>
+          <div class="reveal" style="transition-delay: 300ms">
+            <h3
+              class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-6 text-center"
+            >
+              Cloud & DevOps
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                  class="w-5 h-5"
+                  alt="AWS"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >AWS</span
+                >
+              </div>
             </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
-              />
+          </div>
+          <div class="reveal" style="transition-delay: 450ms">
+            <h3
+              class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-6 text-center"
+            >
+              Tools
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="skill-tag bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-full py-2 px-4 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  class="w-5 h-5"
+                  alt="Git"
+                />
+                <span
+                  class="font-medium text-sm text-light-text dark:text-dark-text"
+                  >Git & GitHub</span
+                >
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="main-container connect">
-        <div class="container">
-          <div class="connect-with-me">
-            <div class="connect-with-me-text">
-              <h2 class="heading--secondary">Connect 🫱🏼‍🫲🏼</h2>
-              <p class="feature-text">
-                Let Us Get Connected To Talk About Tech And Recent Happenings
-                Around The World
+      <!-- Projects Section -->
+      <section id="projects" class="py-24 lg:py-32">
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading"
+          >
+            My Projects
+          </h2>
+          <p class="text-lg text-light-text dark:text-dark-text mt-2">
+            A section showcasing some of my work
+          </p>
+        </div>
+        <div
+          class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4"
+        >
+          <!-- Project 1 -->
+          <div
+            class="reveal bg-light-card dark:bg-dark-card rounded-2xl overflow-hidden border border-light-border dark:border-dark-border transition-transform duration-300 transform hover:-translate-y-2 flex flex-col"
+          >
+            <img
+              src="images/respiratory.png"
+              alt="Project 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-xl font-semibold mb-2 text-light-heading dark:text-dark-heading"
+              >
+                Respiratory Disease Prediction
+              </h3>
+              <p class="text-light-text dark:text-dark-text mb-4 flex-grow">
+                A deep learning model that predicts respiratory diseases from
+                chest X-ray images using TensorFlow and Keras.
               </p>
-              <!-- Below Form Is Working And Submitted Data Will Be Present  In Netlify -->
-              <form class="connect-form" name="connect" netlify>
-                <div>
-                  <label for="name">Full Name</label>
-                  <input
-                    id="u-name"
-                    name="full-name"
-                    type="text"
-                    placeholder="Enter Your Name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label for="email">Email Address </label>
-                  <input
-                    id="email"
-                    name="u-email"
-                    type="email"
-                    placeholder="Enter Your Mail Id"
-                    required
-                  />
-                </div>
-                <div>
-                  <label for="select-option">Intrested In ?</label>
-                  <select name="select-option" required>
-                    <option value="option">Please Choose One Option:</option>
-                    <option value="technology">Tech 💻</option>
-                    <option value="coding">Coding 🧑🏻‍💻</option>
-                    <option value="other">Recent Happenings 🌏</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="text-message">Message</label>
-                  <textarea
-                    id="message"
-                    name="user-message"
-                    rows="3"
-                    cols="25"
-                  ></textarea>
-                </div>
+              <div class="flex justify-center gap-4 mt-auto">
+                <a
+                  href="#"
+                  class="font-semibold text-primary-600 dark:text-primary-400 hover:underline"
+                  >View Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="reveal bg-light-card dark:bg-dark-card rounded-2xl overflow-hidden border border-light-border dark:border-dark-border transition-transform duration-300 transform hover:-translate-y-2 flex flex-col"
+            style="transition-delay: 150ms"
+          >
+            <img
+              src="images/face_mask.png"
+              alt="Project 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-xl font-semibold mb-2 text-light-heading dark:text-dark-heading"
+              >
+                Face Mask Detection
+              </h3>
+              <p class="text-light-text dark:text-dark-text mb-4 flex-grow">
+                A system that detects face masks in real-time using OpenCV and
+                Python.
+              </p>
+              <div class="flex justify-center gap-4 mt-auto">
+                <a
+                  href="#"
+                  class="font-semibold text-primary-600 dark:text-primary-400 hover:underline"
+                  >View Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="reveal bg-light-card dark:bg-dark-card rounded-2xl overflow-hidden border border-light-border dark:border-dark-border transition-transform duration-300 transform hover:-translate-y-2 flex flex-col"
+            style="transition-delay: 300ms"
+          >
+            <img
+              src="images/number_guess.png"
+              alt="Project 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-xl font-semibold mb-2 text-light-heading dark:text-dark-heading"
+              >
+                Guess the Number Game
+              </h3>
+              <p class="text-light-text dark:text-dark-text mb-4 flex-grow">
+                A fun game built with JavaScript where the player has to guess a
+                randomly generated number.
+              </p>
+              <div class="flex justify-center gap-4 mt-auto">
+                <a
+                  href="https://github.com/Nandhan-Varma/Personal-Portfolio"
+                  class="font-semibold text-primary-600 dark:text-primary-400 hover:underline"
+                  >View Code</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <button class="submit-btn">Connect</button>
-              </form>
+      <!-- Coding Profiles Section -->
+      <section
+        id="coding-profiles"
+        class="py-24 lg:py-32 bg-light-card dark:bg-dark-card border-y border-light-border dark:border-dark-border"
+      >
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading"
+          >
+            Coding Profiles
+          </h2>
+          <p class="text-lg text-light-text dark:text-dark-text mt-2">
+            My presence on competitive programming platforms
+          </p>
+        </div>
+        <div
+          class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4"
+        >
+          <!-- LeetCode -->
+          <a
+            href="#"
+            target="_blank"
+            class="reveal profile-card bg-light-bg dark:bg-dark-bg p-6 rounded-2xl border border-light-border dark:border-dark-border text-center transition-transform duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
+          >
+            <div>
+              <img
+                src="images/leetcode.png"
+                alt="LeetCode"
+                class="h-16 w-16 mx-auto mb-4"
+              />
+              <h3
+                class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-2"
+              >
+                LeetCode
+              </h3>
+            </div>
+            <div class="text-light-text dark:text-dark-text text-sm mt-4">
+              <p>
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >400+</span
+                >
+                Problems Solved
+              </p>
+              <p>
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >Top 86%</span
+                >
+                Ranking
+              </p>
+            </div>
+          </a>
+          <!-- HackerRank -->
+          <a
+            href="#"
+            target="_blank"
+            class="reveal profile-card bg-light-bg dark:bg-dark-bg p-6 rounded-2xl border border-light-border dark:border-dark-border text-center transition-transform duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
+            style="transition-delay: 150ms"
+          >
+            <div>
+              <img
+                src="images/hackerrank.png"
+                alt="HackerRank"
+                class="h-16 w-16 mx-auto mb-4"
+              />
+              <h3
+                class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-2"
+              >
+                HackerRank
+              </h3>
+            </div>
+            <div class="text-light-text dark:text-dark-text text-sm mt-4">
+              <p>
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >5 Star</span
+                >
+                in Python
+              </p>
+              <p>
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >5 Star</span
+                >
+                in Problem Solving
+              </p>
+            </div>
+          </a>
+          <!-- CodeChef -->
+          <a
+            href="#"
+            target="_blank"
+            class="reveal profile-card bg-light-bg dark:bg-dark-bg p-6 rounded-2xl border border-light-border dark:border-dark-border text-center transition-transform duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
+            style="transition-delay: 300ms"
+          >
+            <div>
+              <img
+                src="images/codechef.png"
+                alt="CodeChef"
+                class="h-16 w-16 mx-auto mb-4"
+              />
+              <h3
+                class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-2"
+              >
+                CodeChef
+              </h3>
+            </div>
+            <div class="text-light-text dark:text-dark-text text-sm mt-4">
+              <p>
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >2 Star</span
+                >
+                Coder
+              </p>
+              <p>
+                Max Rating:
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >1568</span
+                >
+              </p>
+            </div>
+          </a>
+          <!-- CodeForces -->
+          <a
+            href="#"
+            target="_blank"
+            class="reveal profile-card bg-light-bg dark:bg-dark-bg p-6 rounded-2xl border border-light-border dark:border-dark-border text-center transition-transform duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
+            style="transition-delay: 450ms"
+          >
+            <div>
+              <img
+                src="images/codeforces.png"
+                alt="CodeForces"
+                class="h-16 w-16 mx-auto mb-4"
+              />
+              <h3
+                class="text-xl font-semibold text-light-heading dark:text-dark-heading mb-2"
+              >
+                CodeForces
+              </h3>
+            </div>
+            <div class="text-light-text dark:text-dark-text text-sm mt-4">
+              <p>
+                Rating:
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >Newbie</span
+                >
+              </p>
+              <p>
+                Max Rating:
+                <span
+                  class="font-bold text-light-heading dark:text-dark-heading"
+                  >851</span
+                >
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Awards and Accolades Section -->
+      <section id="awards" class="py-24 lg:py-32">
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading"
+          >
+            Awards & Accolades
+          </h2>
+          <p class="text-lg text-light-text dark:text-dark-text mt-2">
+            My achievements and recognitions
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 space-y-6">
+          <!-- Award 1 -->
+          <a
+            href="#"
+            target="_blank"
+            class="reveal group bg-light-card dark:bg-dark-card p-6 rounded-2xl border border-light-border dark:border-dark-border flex items-center space-x-6 transition-all duration-300 hover:border-primary-500/50 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div class="flex-shrink-0 text-primary-500">
+              <img src="images/medal.svg" alt="Award Icon" class="h-10 w-10" />
+            </div>
+            <div class="flex-grow">
+              <h3
+                class="text-lg font-semibold text-light-heading dark:text-dark-heading"
+              >
+                Best Performer Award of the Quarter
+              </h3>
+              <p
+                class="text-sm font-medium text-primary-600 dark:text-primary-400"
+              >
+                Tata Consultancy Services - 2024
+              </p>
+              <p class="text-sm text-light-text dark:text-dark-text mt-1">
+                Recognized for exceptional performance and significant
+                contributions to project milestones.
+              </p>
+            </div>
+
+            <a
+            href="#"
+            target="_blank"
+            class="reveal group bg-light-card dark:bg-dark-card p-6 rounded-2xl border border-light-border dark:border-dark-border flex items-center space-x-6 transition-all duration-300 hover:border-primary-500/50 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div class="flex-shrink-0 text-primary-500">
+              <img src="images/trophy.svg" alt="Award Icon" class="h-10 w-10" />
+            </div>
+            <div class="flex-grow">
+              <h3
+                class="text-lg font-semibold text-light-heading dark:text-dark-heading"
+              >
+                Best Performer Award of the Quarter
+              </h3>
+              <p
+                class="text-sm font-medium text-primary-600 dark:text-primary-400"
+              >
+                Tata Consultancy Services - 2023
+              </p>
+              <p class="text-sm text-light-text dark:text-dark-text mt-1">
+                Recognized for exceptional performance and significant
+                contributions to project milestones.
+              </p>
+            </div>
+            
+            <div
+              class="flex-shrink-0 text-light-text dark:text-dark-text opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="reveal group bg-light-card dark:bg-dark-card p-6 rounded-2xl border border-light-border dark:border-dark-border flex items-center space-x-6 transition-all duration-300 hover:border-primary-500/50 hover:shadow-lg hover:-translate-y-1"
+            style="transition-delay: 150ms"
+          >
+            <div class="flex-shrink-0 text-primary-500">
+              <img src="images/code.svg" alt="Code Icon" class="h-10 w-10" />
+            </div>
+            <div class="flex-grow">
+              <h3
+                class="text-lg font-semibold text-light-heading dark:text-dark-heading"
+              >
+                Achieved 1276 Rank in TCS CodeVita 2022
+              </h3>
+              <p
+                class="text-sm font-medium text-primary-600 dark:text-primary-400"
+              >
+                Codvita - 2022
+              </p>
+              <p class="text-sm text-light-text dark:text-dark-text mt-1">
+                Secured a rank of 1296 among 30,000+ participants in the
+                prestigious coding competition organized by TCS.
+              </p>
             </div>
             <div
-              class="connect-image"
-              role="img"
-              aria-label="Talking With Each Other"
-            ></div>
+              class="flex-shrink-0 text-light-text dark:text-dark-text opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 lg:py-32">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-display text-light-heading dark:text-dark-heading"
+          >
+            Get In Touch
+          </h2>
+          <p class="text-lg text-light-text dark:text-dark-text mt-4 mb-8">
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of an amazing team. Feel free to reach out!
+          </p>
+          <div class="mt-8 max-w-xl mx-auto">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              class="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-lg p-8 shadow-lg"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div class="mb-4">
+                <label for="name" class="sr-only">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name"
+                  class="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md text-light-text dark:text-dark-text focus:ring-primary-500 focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  class="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md text-light-text dark:text-dark-text focus:ring-primary-500 focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="sr-only">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="4"
+                  placeholder="Your Message"
+                  class="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md text-light-text dark:text-dark-text focus:ring-primary-500 focus:border-primary-500"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-primary-700 transition-transform transform hover:scale-105 shadow-lg shadow-primary-500/20"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </section>
-      <footer class="footer main-container">
-        <div class="container grid grid--4--cols2">
-          <div class="logo-col">
-            <a href="#" class="footer-logo">
-              <img class="logo" alt="my-logo" src="../images/my-logo (2).png" />
-            </a>
-            <p class="footer-text">Aspiring Developer</p>
-            <p class="footer-text">Motivated And Dedicated Individual</p>
-          </div>
-          <div class="address-col">
-            <p class="footer-heading">Address</p>
-            <address>
-              <p>
-                Flat No.403 Rama Residency Dollar Hills Manikonda Hyderabad
-                500089
-              </p>
-            </address>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3178463049!2d78.38298785046398!3d17.39652760706182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97b91d8c8e75%3A0x371dc9e229ea846d!2sRama%20Residency!5e0!3m2!1sen!2sin!4v1667955277952!5m2!1sen!2sin"
-              width="300"
-              height="200"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="social-col">
-            <p class="footer-heading">Social</p>
-            <div class="grid--2--cols">
-              <div class="contact-tech-imgs">
-                <a href="https://github.com/Nandhan-Varma" target="_blank">
-                  <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                    alt="github-logo"
-                  />
-                </a>
-              </div>
-              <div class="contact-tech-imgs">
-                <a href="#" target="_blank">
-                  <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-                    alt="linked-in logo"
-                  />
-                </a>
-              </div>
-              <div class="contact-tech-imgs">
-                <a href="#" target="_blank">
-                  <img src="../images/instagram.png" alt="instagram logo" />
-                </a>
-              </div>
-              <div class="contact-tech-imgs">
-                <a href="#" target="_blank">
-                  <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
-                    alt="twitter logo"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+    </main>
 
-          <div class="resources-col">
-            <p class="footer-heading">Resources</p>
-            <div class="resources">
-              <p>Icons</p>
-              <ul>
-                <li>
-                  <a href="https://iconscout.com/unicons" alt="iconscout"
-                    >IconScout</a
-                  >
-                </li>
-                <li>
-                  <a href="https://devicon.dev/" alt="devicon">DevIcon</a>
-                </li>
-              </ul>
-              <p>Images</p>
-              <ul>
-                <li>
-                  <a href="https://unsplash.com/" alt="unsplash">Unsplash</a>
-                </li>
-                <li><a href="https://icons8.com/" alt="icons8">Icons8</a></li>
-                <li><a href="https://storyset.com/work">Storyset</a></li>
-              </ul>
-              <p>Colours</p>
-              <ul>
-                <li>
-                  <a href="https://yeun.github.io/open-color/" alt="opencolors"
-                    >OpenColor</a
-                  >
-                </li>
-                <li>
-                  <a href="https://uigradients.com/#Vasily" alt="gradients"
-                    >UI Gradients</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://maketintsandshades.com/"
-                    alt="tints and shades"
-                    >Tints And Shades</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="border-t border-light-border dark:border-dark-border">
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-light-text dark:text-dark-text"
+      >
+        <p>&copy; 2025 Nandhan Varma. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Theme Switcher
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      const themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      themeToggleBtn.addEventListener("click", function () {
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+
+      // Typing Effect
+      new Typed("#typing-effect", {
+        strings: ["Software Developer", "Gen AI Developer", "ML Enthusiast"],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+        backDelay: 2000,
+      });
+
+      // Scroll Animations
+      const revealElements = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      revealElements.forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
